@@ -227,8 +227,8 @@
             "rounds": "Cost Rounds (Salt factor)",
             "password": "Password",
             "hash": "Bcrypt Hash",
-            "match": "Password matches hash!",
-            "mismatch": "Password does NOT match hash."
+            "match": "Password matches",
+            "mismatch": "Password does not match"
         },
         "random-hash": {
             "name": "Random Hash / Secret",

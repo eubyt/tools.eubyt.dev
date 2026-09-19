@@ -227,8 +227,8 @@
             "rounds": "Fator de Custo (Rounds)",
             "password": "Senha",
             "hash": "Hash Bcrypt",
-            "match": "A senha confere com o hash!",
-            "mismatch": "A senha NÃO confere com o hash."
+            "match": "Senha confere",
+            "mismatch": "Senha não confere"
         },
         "random-hash": {
             "name": "Hash Aleatório / Segredo",

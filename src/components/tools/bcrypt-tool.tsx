@@ -286,25 +286,23 @@ export function BcryptTool() {
 
                         {verifyResult !== null && (
                             <div
-                                className={`flex items-center gap-2 rounded-sm border p-3 text-xs ${
+                                className={cn(
+                                    "flex items-center gap-2 rounded-sm border px-3 py-2 text-xs",
                                     verifyResult
-                                        ? "border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold"
-                                        : "border-destructive/40 bg-destructive/10 text-destructive font-semibold"
-                                }`}
+                                        ? "border-emerald-500/30 bg-emerald-500/5 text-emerald-600 dark:text-emerald-400"
+                                        : "border-destructive/30 bg-destructive/5 text-destructive",
+                                )}
                             >
                                 {verifyResult ? (
-                                    <>
-                                        <LuShieldCheck className="size-4" />
-                                        <span>{t("tools.bcrypt.match")}</span>
-                                    </>
+                                    <LuShieldCheck className="size-3.5 shrink-0" />
                                 ) : (
-                                    <>
-                                        <LuShieldAlert className="size-4" />
-                                        <span>
-                                            {t("tools.bcrypt.mismatch")}
-                                        </span>
-                                    </>
+                                    <LuShieldAlert className="size-3.5 shrink-0" />
                                 )}
+                                <span>
+                                    {verifyResult
+                                        ? t("tools.bcrypt.match")
+                                        : t("tools.bcrypt.mismatch")}
+                                </span>
                             </div>
                         )}
                     </div>
