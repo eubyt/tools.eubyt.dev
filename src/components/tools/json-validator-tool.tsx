@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { LuCircleCheck, LuCircleAlert } from "react-icons/lu";
+import { LuCircleAlert } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ToolShell } from "./tool-shell";
@@ -9,7 +9,6 @@ import { validateJson, formatJson } from "@/lib/tools/json-utils";
 import { useTranslations } from "@/providers/locale";
 
 const SAMPLE_VALID = `{\n  "status": "success",\n  "code": 200,\n  "data": {\n    "message": "Valid JSON"\n  }\n}`;
-const SAMPLE_INVALID = `{\n  "status": "error",\n  "trailing_comma": true,\n}`;
 
 export function JsonValidatorTool() {
     const t = useTranslations();
@@ -28,14 +27,7 @@ export function JsonValidatorTool() {
                         size="xs"
                         onClick={() => setInput(SAMPLE_VALID)}
                     >
-                        Valid {t("common.sample")}
-                    </Button>
-                    <Button
-                        variant="outline"
-                        size="xs"
-                        onClick={() => setInput(SAMPLE_INVALID)}
-                    >
-                        Invalid {t("common.sample")}
+                        {t("common.sample")}
                     </Button>
                     <Button
                         variant="outline"
@@ -51,30 +43,17 @@ export function JsonValidatorTool() {
                 {/* Status Indicator */}
                 <div className="flex items-center justify-between pb-3">
                     <div className="flex items-center gap-2 text-xs">
-                        {input.trim() ? (
-                            validation.valid ? (
-                                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
-                                    <LuCircleCheck className="size-4" />
-                                    <span className="font-semibold">
-                                        Valid JSON
-                                    </span>
-                                </div>
-                            ) : (
-                                <div className="flex items-center gap-1.5 text-destructive">
-                                    <LuCircleAlert className="size-4" />
-                                    <span className="font-semibold">
-                                        Syntax Error
-                                        {validation.line
-                                            ? ` at Line ${validation.line}, Column ${validation.column}`
-                                            : ""}
-                                    </span>
-                                </div>
-                            )
-                        ) : (
-                            <span className="text-muted-foreground">
-                                Ready for input
-                            </span>
-                        )}
+                        {!validation.valid && input.trim() ? (
+                            <div className="flex items-center gap-1.5 text-destructive">
+                                <LuCircleAlert className="size-4" />
+                                <span className="font-semibold">
+                                    {t("common.invalid")}
+                                    {validation.line
+                                        ? ` (L${validation.line}:C${validation.column})`
+                                        : ""}
+                                </span>
+                            </div>
+                        ) : null}
                     </div>
 
                     {validation.valid && input.trim() && (
