@@ -1,6 +1,6 @@
 {
     "meta": {
-        "title": "tools.eubyt.dev — Ferramentas para Desenvolvedores",
+        "title": "Ferramentas para Desenvolvedores — tools.eubyt.dev",
         "description": "Utilitários para desenvolvedores: hashes, conversores JSON, JWT, HMAC, AES, Bcrypt, UUIDs, Base64."
     },
     "header": {
@@ -237,7 +237,7 @@
             "mismatch": "Senha não confere"
         },
         "random-hash": {
-            "name": "Hash Aleatório / Segredo",
+            "name": "Hash Aleatório",
             "desc": "Gere hashes aleatórios criptográficos, tokens e chaves de API",
             "count": "Quantidade",
             "length": "Comprimento",

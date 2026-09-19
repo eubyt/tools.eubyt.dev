@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         process.env.NEXT_PUBLIC_SITE_URL || "https://tools.eubyt.dev",
     ),
     title: {
-        default: "tools.eubyt.dev — Developer Tools",
+        default: "Developer Tools — tools.eubyt.dev",
         template: "%s — tools.eubyt.dev",
     },
     description: "Developer utility tools.",

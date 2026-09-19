@@ -1,6 +1,6 @@
 {
     "meta": {
-        "title": "tools.eubyt.dev — Developer Tools",
+        "title": "Developer Tools — tools.eubyt.dev",
         "description": "Developer utility tools: hashes, JSON converters, JWT, HMAC, AES, Bcrypt, UUIDs, Base64."
     },
     "header": {
@@ -237,7 +237,7 @@
             "mismatch": "Password does not match"
         },
         "random-hash": {
-            "name": "Random Hash / Secret",
+            "name": "Random Hash",
             "desc": "Cryptographically secure random hashes, API keys, and tokens",
             "count": "Quantity",
             "length": "Length",
