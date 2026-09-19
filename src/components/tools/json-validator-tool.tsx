@@ -32,6 +32,18 @@ export function JsonValidatorTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!validation.valid || !input.trim()}
+                        onClick={() => {
+                            try {
+                                setInput(formatJson(input, "2"));
+                            } catch {}
+                        }}
+                    >
+                        {t("common.format")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => setInput("")}
                     >
                         {t("common.clear")}
@@ -40,36 +52,17 @@ export function JsonValidatorTool() {
             }
         >
             <div className="flex flex-col gap-4 font-mono">
-                {/* Status Indicator */}
-                <div className="flex items-center justify-between pb-3">
-                    <div className="flex items-center gap-2 text-xs">
-                        {!validation.valid && input.trim() ? (
-                            <div className="flex items-center gap-1.5 text-destructive">
-                                <LuCircleAlert className="size-4" />
-                                <span className="font-semibold">
-                                    {t("common.invalid")}
-                                    {validation.line
-                                        ? ` (L${validation.line}:C${validation.column})`
-                                        : ""}
-                                </span>
-                            </div>
-                        ) : null}
+                {!validation.valid && input.trim() && (
+                    <div className="flex items-center gap-1.5 text-xs text-destructive">
+                        <LuCircleAlert className="size-4" />
+                        <span className="font-semibold">
+                            {t("common.invalid")}
+                            {validation.line
+                                ? ` (L${validation.line}:C${validation.column})`
+                                : ""}
+                        </span>
                     </div>
-
-                    {validation.valid && input.trim() && (
-                        <Button
-                            variant="secondary"
-                            size="xs"
-                            onClick={() => {
-                                try {
-                                    setInput(formatJson(input, "2"));
-                                } catch {}
-                            }}
-                        >
-                            {t("common.format")}
-                        </Button>
-                    )}
-                </div>
+                )}
 
                 {/* Editor */}
                 <div className="flex flex-col gap-2">
