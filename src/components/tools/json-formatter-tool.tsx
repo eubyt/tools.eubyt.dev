@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
 import { ToolShell } from "./tool-shell";
 import {
     formatJson,
@@ -72,6 +71,14 @@ export function JsonFormatterTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!validation.valid || !input.trim()}
+                        onClick={handleApplyFormat}
+                    >
+                        {t("common.format")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => setInput("")}
                     >
                         {t("common.clear")}
@@ -100,25 +107,6 @@ export function JsonFormatterTool() {
                                       : t("tools.json-formatter.tabs")}
                             </Button>
                         ))}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        {!validation.valid && input.trim() ? (
-                            <Badge variant="destructive">
-                                {t("common.invalid")}{" "}
-                                {validation.line
-                                    ? `(L${validation.line}:C${validation.column})`
-                                    : ""}
-                            </Badge>
-                        ) : null}
-                        <Button
-                            variant="secondary"
-                            size="xs"
-                            disabled={!validation.valid || !input.trim()}
-                            onClick={handleApplyFormat}
-                        >
-                            {t("common.format")}
-                        </Button>
                     </div>
                 </div>
 
