@@ -66,6 +66,16 @@ export function AesTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!output || !!error}
+                        onClick={() => copy(output, "aes-out")}
+                    >
+                        {isCopied("aes-out")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => {
                             setInput("");
                         }}
@@ -162,23 +172,12 @@ export function AesTool() {
                     </div>
 
                     <div className="flex flex-col gap-1.5">
-                        <div className="flex h-6.5 items-center justify-between text-xs">
-                            <span className="font-medium text-foreground">
+                        <div className="flex h-6.5 items-center">
+                            <span className="text-xs font-medium text-foreground">
                                 {mode === "encrypt"
                                     ? t("tools.aes.ciphertext")
                                     : t("tools.aes.plaintext")}
                             </span>
-                            <Button
-                                variant="outline"
-                                size="xs"
-                                disabled={!output || !!error}
-                                onClick={() => copy(output, "aes-out")}
-                                className="h-6.5 gap-1.5 px-2.5"
-                            >
-                                {isCopied("aes-out")
-                                    ? t("common.copied")
-                                    : t("common.copy")}
-                            </Button>
                         </div>
                         {error && input.trim() ? (
                             <div className="min-h-[180px] rounded-sm border border-destructive/40 bg-destructive/5 p-3 text-xs text-destructive">

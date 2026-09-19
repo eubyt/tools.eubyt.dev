@@ -126,6 +126,16 @@ export function JwtDecoderTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!token.trim()}
+                        onClick={() => copy(token, "jwt-raw-token")}
+                    >
+                        {isCopied("jwt-raw-token")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => setToken("")}
                     >
                         {t("common.clear")}
@@ -173,19 +183,6 @@ export function JwtDecoderTool() {
                                 </span>
                             ) : null}
                         </div>
-
-                        {/* Copy Full Token */}
-                        <Button
-                            variant="outline"
-                            size="xs"
-                            disabled={!token.trim()}
-                            onClick={() => copy(token, "jwt-raw-token")}
-                            className="h-6 px-3 text-[0.6875rem]"
-                        >
-                            {isCopied("jwt-raw-token")
-                                ? t("common.copied")
-                                : t("common.copy")}
-                        </Button>
                     </div>
 
                     {/* Colored Input Box (jwt.io style) */}

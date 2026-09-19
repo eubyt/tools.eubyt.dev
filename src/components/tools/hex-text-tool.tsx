@@ -63,6 +63,16 @@ export function HexTextTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!output || !!error}
+                        onClick={() => copy(output, "hex-out")}
+                    >
+                        {isCopied("hex-out")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => setInput("")}
                     >
                         {t("common.clear")}
@@ -160,21 +170,10 @@ export function HexTextTool() {
                     </div>
 
                     <div className="flex flex-col gap-1.5">
-                        <div className="flex h-6.5 items-center justify-between text-xs">
-                            <span className="font-medium text-foreground">
+                        <div className="flex h-6.5 items-center">
+                            <span className="text-xs font-medium text-foreground">
                                 {t("common.output")}
                             </span>
-                            <Button
-                                variant="outline"
-                                size="xs"
-                                disabled={!output || !!error}
-                                onClick={() => copy(output, "hex-out")}
-                                className="h-6.5 gap-1.5 px-2.5"
-                            >
-                                {isCopied("hex-out")
-                                    ? t("common.copied")
-                                    : t("common.copy")}
-                            </Button>
                         </div>
                         {error ? (
                             <div className="min-h-[180px] rounded-sm border border-destructive/40 bg-destructive/5 p-3 text-xs text-destructive">

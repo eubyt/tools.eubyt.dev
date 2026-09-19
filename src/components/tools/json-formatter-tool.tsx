@@ -62,6 +62,16 @@ export function JsonFormatterTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!formatted}
+                        onClick={() => copy(formatted, "fmt-out")}
+                    >
+                        {isCopied("fmt-out")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => setInput("")}
                     >
                         {t("common.clear")}
@@ -129,21 +139,10 @@ export function JsonFormatterTool() {
                     </div>
 
                     <div className="flex flex-col gap-1.5">
-                        <div className="flex h-6.5 items-center justify-between text-xs">
-                            <span className="font-medium text-foreground">
+                        <div className="flex h-6.5 items-center">
+                            <span className="text-xs font-medium text-foreground">
                                 {t("common.output")}
                             </span>
-                            <Button
-                                variant="outline"
-                                size="xs"
-                                disabled={!formatted}
-                                onClick={() => copy(formatted, "fmt-out")}
-                                className="h-6.5 gap-1.5 px-2.5"
-                            >
-                                {isCopied("fmt-out")
-                                    ? t("common.copied")
-                                    : t("common.copy")}
-                            </Button>
                         </div>
                         {!validation.valid && input.trim() ? (
                             <div className="min-h-[300px] rounded-sm border border-destructive/40 bg-destructive/5 p-3 text-xs text-destructive">

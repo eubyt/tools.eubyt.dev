@@ -101,6 +101,25 @@ export function BcryptTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={
+                            mode === "generate" ? !displayHash : !verifyHash
+                        }
+                        onClick={() => {
+                            if (mode === "generate") {
+                                copy(displayHash, "bcrypt-out");
+                            } else {
+                                copy(verifyHash, "bcrypt-verify-hash");
+                            }
+                        }}
+                    >
+                        {isCopied("bcrypt-out") ||
+                        isCopied("bcrypt-verify-hash")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => {
                             setPassword("");
                             setGeneratedHash("");
@@ -216,18 +235,6 @@ export function BcryptTool() {
                                                         "animate-spin",
                                                 )}
                                             />
-                                        </Button>
-                                        <Button
-                                            variant="outline"
-                                            size="xs"
-                                            onClick={() =>
-                                                copy(displayHash, "bcrypt-out")
-                                            }
-                                            className="h-6.5 gap-1.5 px-2.5"
-                                        >
-                                            {isCopied("bcrypt-out")
-                                                ? t("common.copied")
-                                                : t("common.copy")}
                                         </Button>
                                     </div>
                                 </div>

@@ -64,6 +64,12 @@
         "download": "Baixar",
         "searchEmpty": "Nenhuma ferramenta encontrada para '{query}'"
     },
+    "notFound": {
+        "code": "404",
+        "title": "Página não encontrada",
+        "description": "Essa rota não existe — ou a ferramenta foi movida.",
+        "home": "Voltar"
+    },
     "categories": {
         "all": "Todas",
         "crypto": "Hash & Cripto",

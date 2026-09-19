@@ -58,6 +58,16 @@ export function Base64Tool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!output || !!error}
+                        onClick={() => copy(output, "b64-out")}
+                    >
+                        {isCopied("b64-out")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => setInput("")}
                     >
                         {t("common.clear")}
@@ -140,22 +150,9 @@ export function Base64Tool() {
                                     ? t("tools.base64.b64Placeholder")
                                     : t("common.output")}
                             </span>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[0.6875rem] text-muted-foreground">
-                                    {output.length} {t("common.characters")}
-                                </span>
-                                <Button
-                                    variant="outline"
-                                    size="xs"
-                                    disabled={!output || !!error}
-                                    onClick={() => copy(output, "b64-out")}
-                                    className="h-6.5 gap-1.5 px-2.5"
-                                >
-                                    {isCopied("b64-out")
-                                        ? t("common.copied")
-                                        : t("common.copy")}
-                                </Button>
-                            </div>
+                            <span className="text-[0.6875rem] text-muted-foreground">
+                                {output.length} {t("common.characters")}
+                            </span>
                         </div>
                         {error ? (
                             <div className="min-h-[180px] rounded-sm border border-destructive/40 bg-destructive/5 p-3 text-xs text-destructive">

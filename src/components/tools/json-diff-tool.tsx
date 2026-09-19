@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { ToolShell } from "./tool-shell";
 import { diffJson } from "@/lib/tools/json-utils";
+import { useClipboard } from "@/hooks/use-clipboard";
 import { useTranslations } from "@/providers/locale";
 
 const SAMPLE_LEFT = JSON.stringify(
@@ -45,6 +46,7 @@ export function JsonDiffTool() {
     const t = useTranslations();
     const [leftInput, setLeftInput] = useState(SAMPLE_LEFT);
     const [rightInput, setRightInput] = useState(SAMPLE_RIGHT);
+    const { copy, isCopied } = useClipboard();
 
     const diffResult = useMemo(() => {
         try {
@@ -77,6 +79,21 @@ export function JsonDiffTool() {
                         }}
                     >
                         {t("common.sample")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
+                        disabled={diffResult.diffs.length === 0}
+                        onClick={() =>
+                            copy(
+                                JSON.stringify(diffResult.diffs, null, 2),
+                                "diff-out",
+                            )
+                        }
+                    >
+                        {isCopied("diff-out")
+                            ? t("common.copied")
+                            : t("common.copy")}
                     </Button>
                     <Button
                         variant="outline"

@@ -75,6 +75,16 @@ export function JwtGeneratorTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!signedJwt || !!error}
+                        onClick={() => copy(signedJwt, "jwt-gen-out")}
+                    >
+                        {isCopied("jwt-gen-out")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => {
                             setSecret("");
                             setPayloadText("{}");
@@ -171,21 +181,10 @@ export function JwtGeneratorTool() {
 
                 {/* Signed Token Output */}
                 <div className="flex flex-col gap-1.5">
-                    <div className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-foreground">
+                    <div className="flex h-6.5 items-center">
+                        <span className="text-xs font-semibold text-foreground">
                             {t("tools.jwt-generator.tokenOutput")}
                         </span>
-                        <Button
-                            variant="outline"
-                            size="xs"
-                            disabled={!signedJwt || !!error}
-                            onClick={() => copy(signedJwt, "jwt-gen-out")}
-                            className="h-6.5 gap-1.5 px-2.5"
-                        >
-                            {isCopied("jwt-gen-out")
-                                ? t("common.copied")
-                                : t("common.copy")}
-                        </Button>
                     </div>
 
                     {error ? (

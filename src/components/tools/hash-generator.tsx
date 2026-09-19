@@ -27,6 +27,13 @@ export function HashGenerator() {
         [input, uppercase],
     );
 
+    const handleCopyAll = () => {
+        const text = HASH_ALGORITHMS.map(
+            ({ key, name }) => `${name}: ${hashes[key] || ""}`,
+        ).join("\n");
+        copy(text, "all-hashes");
+    };
+
     return (
         <ToolShell
             title={t("tools.hash-gen.name")}
@@ -39,6 +46,16 @@ export function HashGenerator() {
                         onClick={() => setInput("Hello, World!")}
                     >
                         {t("common.sample")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
+                        disabled={!input}
+                        onClick={handleCopyAll}
+                    >
+                        {isCopied("all-hashes")
+                            ? t("common.copied")
+                            : t("common.copy")}
                     </Button>
                     <Button
                         variant="outline"

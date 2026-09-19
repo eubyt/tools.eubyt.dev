@@ -64,6 +64,12 @@
         "download": "Download",
         "searchEmpty": "No tools matching '{query}'"
     },
+    "notFound": {
+        "code": "404",
+        "title": "Page not found",
+        "description": "This route doesn't exist — or the tool was moved.",
+        "home": "Back"
+    },
     "categories": {
         "all": "All",
         "crypto": "Hash & Crypto",

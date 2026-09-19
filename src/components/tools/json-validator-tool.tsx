@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ToolShell } from "./tool-shell";
 import { validateJson, formatJson } from "@/lib/tools/json-utils";
+import { useClipboard } from "@/hooks/use-clipboard";
 import { useTranslations } from "@/providers/locale";
 
 const SAMPLE_VALID = `{\n  "status": "success",\n  "code": 200,\n  "data": {\n    "message": "Valid JSON"\n  }\n}`;
@@ -12,6 +13,7 @@ const SAMPLE_VALID = `{\n  "status": "success",\n  "code": 200,\n  "data": {\n  
 export function JsonValidatorTool() {
     const t = useTranslations();
     const [input, setInput] = useState(SAMPLE_VALID);
+    const { copy, isCopied } = useClipboard();
 
     const validation = validateJson(input);
 
@@ -27,6 +29,16 @@ export function JsonValidatorTool() {
                         onClick={() => setInput(SAMPLE_VALID)}
                     >
                         {t("common.sample")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
+                        disabled={!input.trim()}
+                        onClick={() => copy(input, "val-input")}
+                    >
+                        {isCopied("val-input")
+                            ? t("common.copied")
+                            : t("common.copy")}
                     </Button>
                     <Button
                         variant="outline"

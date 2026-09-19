@@ -48,6 +48,16 @@ export function HmacTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!hmacValue}
+                        onClick={() => copy(hmacValue, "hmac-out")}
+                    >
+                        {isCopied("hmac-out")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => {
                             setSecretKey("");
                             setMessage("");
@@ -116,21 +126,10 @@ export function HmacTool() {
 
                 {/* Output */}
                 <div className="flex flex-col gap-1.5">
-                    <div className="flex items-center justify-between text-xs">
-                        <span className="font-semibold text-foreground">
+                    <div className="flex h-6.5 items-center">
+                        <span className="text-xs font-semibold text-foreground">
                             HMAC-{algorithm} {t("common.output")}
                         </span>
-                        <Button
-                            variant="outline"
-                            size="xs"
-                            disabled={!hmacValue}
-                            onClick={() => copy(hmacValue, "hmac-out")}
-                            className="h-6.5 gap-1.5 px-2.5"
-                        >
-                            {isCopied("hmac-out")
-                                ? t("common.copied")
-                                : t("common.copy")}
-                        </Button>
                     </div>
                     <div className="rounded-sm bg-muted/30 p-3 text-xs text-foreground select-all break-all">
                         {hmacValue || (
