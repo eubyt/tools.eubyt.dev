@@ -136,6 +136,24 @@ export const TOOLS: ToolItem[] = [
         badge: "v4 • v7 • v1",
         keywords: ["uuid", "guid", "v4", "v7", "v1", "id", "generator"],
     },
+    {
+        id: "url-slug",
+        titleKey: "tools.url-slug.name",
+        descKey: "tools.url-slug.desc",
+        category: "generators",
+        path: "/url-slug",
+        badge: "Slugify",
+        keywords: [
+            "slug",
+            "slugify",
+            "url",
+            "clean",
+            "seo",
+            "permalink",
+            "title",
+            "generator",
+        ],
+    },
 
     // Encoding
     {

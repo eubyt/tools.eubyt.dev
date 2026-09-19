@@ -258,11 +258,32 @@
             "uppercase": "Uppercase",
             "copyAll": "Copy all",
             "generate": "Generate"
+        },
+        "url-slug": {
+            "name": "Clean URL Slug Generator",
+            "desc": "Generate clean, SEO-friendly URL slugs with custom separators, stop words and casing",
+            "separator": "Separator",
+            "hyphen": "Hyphen (-)",
+            "underscore": "Underscore (_)",
+            "dot": "Dot (.)",
+            "slash": "Slash (/)",
+            "none": "None",
+            "casing": "Letter Case",
+            "titleCase": "Title Case",
+            "preserveCase": "Preserve Case",
+            "maxLength": "Max Length (0 = unlimited)",
+            "removeStopWords": "Remove stop words",
+            "removeNumbers": "Remove numbers",
+            "removeAccents": "Remove accents",
+            "trimSeparators": "Trim separators",
+            "textPlaceholder": "Type or paste text to slugify (e.g. My Awesome Article Title!)...",
+            "outputPlaceholder": "Generated URL slug...",
+            "words": "words"
         }
     },
     "footer": {
-        "sourceCode": "source code",
-        "credit": "tools.eubyt.dev"
+        "credit": "tools.eubyt.dev",
+        "madeBy": "by"
     },
     "toast": {
         "close": "Close"

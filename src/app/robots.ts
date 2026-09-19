@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { siteOrigin } from "@/lib/site/origin";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://tools.eubyt.dev";
+export default async function robots(): Promise<MetadataRoute.Robots> {
+    const origin = await siteOrigin();
 
-export default function robots(): MetadataRoute.Robots {
     return {
         rules: [
             {
@@ -10,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
                 allow: "/",
             },
         ],
-        sitemap: `${BASE_URL}/sitemap.xml`,
+        sitemap: `${origin}/sitemap.xml`,
     };
 }

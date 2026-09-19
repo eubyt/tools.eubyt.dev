@@ -99,7 +99,17 @@ export function FolioShell({
                                 <GridIntersection corner="top-left" />
                                 <GridIntersection corner="top-right" />
 
-                                <p>{t("footer.credit")}</p>
+                                <p>
+                                    {t("footer.credit")} {t("footer.madeBy")}{" "}
+                                    <a
+                                        href={`https://eubyt.dev/${locale}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="transition-colors hover:text-foreground"
+                                    >
+                                        eubyt.dev
+                                    </a>
+                                </p>
                             </footer>
                         </div>
                     </div>

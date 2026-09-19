@@ -19,6 +19,7 @@ import { AesTool } from "./aes-tool";
 import { BcryptTool } from "./bcrypt-tool";
 import { RandomHashTool } from "./random-hash-tool";
 import { UuidTool } from "./uuid-tool";
+import { SlugTool } from "./slug-tool";
 
 type ToolRendererProps = {
     toolId: string;
@@ -64,6 +65,8 @@ export function ToolRenderer({ toolId }: ToolRendererProps) {
             return <RandomHashTool />;
         case "uuid":
             return <UuidTool />;
+        case "url-slug":
+            return <SlugTool />;
         default:
             return <div>Tool not found</div>;
     }

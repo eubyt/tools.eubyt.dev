@@ -258,11 +258,32 @@
             "uppercase": "Maiúsculas",
             "copyAll": "Copiar todos",
             "generate": "Gerar"
+        },
+        "url-slug": {
+            "name": "Gerador de Slug URL Limpo",
+            "desc": "Gere slugs de URL limpos e amigáveis para SEO com separadores customizados, stop words e caixa",
+            "separator": "Separador",
+            "hyphen": "Hífen (-)",
+            "underscore": "Underline (_)",
+            "dot": "Ponto (.)",
+            "slash": "Barra (/)",
+            "none": "Nenhum",
+            "casing": "Caixa do texto",
+            "titleCase": "Título (Title Case)",
+            "preserveCase": "Preservar original",
+            "maxLength": "Tam. máximo (0 = ilimitado)",
+            "removeStopWords": "Remover stop words",
+            "removeNumbers": "Remover números",
+            "removeAccents": "Remover acentos",
+            "trimSeparators": "Aparar separadores",
+            "textPlaceholder": "Digite ou cole o texto para converter em slug (ex: Título do Artigo Incrível!)...",
+            "outputPlaceholder": "Slug de URL gerado...",
+            "words": "palavras"
         }
     },
     "footer": {
-        "sourceCode": "código-fonte",
-        "credit": "tools.eubyt.dev"
+        "credit": "tools.eubyt.dev",
+        "madeBy": "por"
     },
     "toast": {
         "close": "Fechar"
