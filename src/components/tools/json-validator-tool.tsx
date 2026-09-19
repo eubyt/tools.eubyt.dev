@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { LuCircleAlert } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ToolShell } from "./tool-shell";
@@ -52,18 +51,6 @@ export function JsonValidatorTool() {
             }
         >
             <div className="flex flex-col gap-4 font-mono">
-                {!validation.valid && input.trim() && (
-                    <div className="flex items-center gap-1.5 text-xs text-destructive">
-                        <LuCircleAlert className="size-4" />
-                        <span className="font-semibold">
-                            {t("common.invalid")}
-                            {validation.line
-                                ? ` (L${validation.line}:C${validation.column})`
-                                : ""}
-                        </span>
-                    </div>
-                )}
-
                 {/* Editor */}
                 <div className="flex flex-col gap-2">
                     <Textarea
