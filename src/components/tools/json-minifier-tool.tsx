@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge";
 import { ToolShell } from "./tool-shell";
 import { minifyJson, validateJson } from "@/lib/tools/json-utils";
 import { useClipboard } from "@/hooks/use-clipboard";
@@ -42,6 +41,16 @@ export function JsonMinifierTool() {
                     <Button
                         variant="outline"
                         size="xs"
+                        disabled={!minified}
+                        onClick={() => copy(minified, "mini-out")}
+                    >
+                        {isCopied("mini-out")
+                            ? t("common.copied")
+                            : t("common.copy")}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="xs"
                         onClick={() => setInput("")}
                     >
                         {t("common.clear")}
@@ -50,29 +59,6 @@ export function JsonMinifierTool() {
             }
         >
             <div className="flex flex-col gap-4 font-mono">
-                {/* Toolbar */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-3 text-xs">
-                    <div className="flex items-center gap-2">
-                        {!validation.valid && input.trim() ? (
-                            <Badge variant="destructive">
-                                {t("common.invalid")}
-                            </Badge>
-                        ) : null}
-                    </div>
-
-                    <Button
-                        variant="outline"
-                        size="xs"
-                        disabled={!minified}
-                        onClick={() => copy(minified, "mini-out")}
-                        className="h-6.5 gap-1.5 px-2.5"
-                    >
-                        {isCopied("mini-out")
-                            ? t("common.copied")
-                            : t("common.copy")}
-                    </Button>
-                </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1.5">
                         <div className="flex h-6.5 items-center">
