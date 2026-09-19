@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LuShieldCheck, LuShieldAlert } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,8 +28,9 @@ export function BcryptTool() {
     const [isProcessing, setIsProcessing] = useState(false);
     const { copy, isCopied } = useClipboard();
 
+    const displayHash = password ? generatedHash : "";
     const inspected = parseBcryptHash(
-        mode === "generate" ? generatedHash : verifyHash,
+        mode === "generate" ? displayHash : verifyHash,
     );
 
     const handleGenerate = async () => {
@@ -42,6 +43,26 @@ export function BcryptTool() {
             setIsProcessing(false);
         }
     };
+
+    useEffect(() => {
+        if (!password) return;
+        let cancelled = false;
+        const timer = setTimeout(() => {
+            setIsProcessing(true);
+            generateBcryptHash(password, rounds)
+                .then((h) => {
+                    if (!cancelled) setGeneratedHash(h);
+                })
+                .finally(() => {
+                    if (!cancelled) setIsProcessing(false);
+                });
+        }, 150);
+
+        return () => {
+            cancelled = true;
+            clearTimeout(timer);
+        };
+    }, [password, rounds]);
 
     const handleVerify = async () => {
         if (!verifyPassword || !verifyHash) return;
@@ -98,9 +119,14 @@ export function BcryptTool() {
                     <Button
                         variant={mode === "generate" ? "default" : "outline"}
                         size="xs"
-                        onClick={() => setMode("generate")}
+                        onClick={() => {
+                            setMode("generate");
+                            handleGenerate();
+                        }}
                     >
-                        {t("tools.bcrypt.generate")}
+                        {isProcessing && mode === "generate"
+                            ? "Hashing..."
+                            : t("tools.bcrypt.generate")}
                     </Button>
                     <Button
                         variant={mode === "verify" ? "default" : "outline"}
@@ -155,19 +181,8 @@ export function BcryptTool() {
                             </div>
                         </div>
 
-                        <Button
-                            variant="secondary"
-                            onClick={handleGenerate}
-                            disabled={!password || isProcessing}
-                            className="self-start"
-                        >
-                            {isProcessing
-                                ? "Hashing..."
-                                : t("tools.bcrypt.generate")}
-                        </Button>
-
                         {/* Generated Output */}
-                        {generatedHash && (
+                        {displayHash && (
                             <div className="flex flex-col gap-1.5 pt-2">
                                 <div className="flex items-center justify-between text-xs">
                                     <span className="font-semibold text-foreground">
@@ -177,7 +192,7 @@ export function BcryptTool() {
                                         variant="outline"
                                         size="xs"
                                         onClick={() =>
-                                            copy(generatedHash, "bcrypt-out")
+                                            copy(displayHash, "bcrypt-out")
                                         }
                                         className="h-6.5 gap-1.5 px-2.5"
                                     >
@@ -187,7 +202,7 @@ export function BcryptTool() {
                                     </Button>
                                 </div>
                                 <div className="rounded-sm bg-muted/30 p-3 text-xs text-foreground select-all break-all">
-                                    {generatedHash}
+                                    {displayHash}
                                 </div>
                             </div>
                         )}
