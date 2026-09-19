@@ -1,0 +1,264 @@
+{
+    "meta": {
+        "title": "tools.eubyt.dev — Ferramentas para Desenvolvedores",
+        "description": "Utilitários para desenvolvedores: hashes, conversores JSON, JWT, HMAC, AES, Bcrypt, UUIDs, Base64."
+    },
+    "header": {
+        "title": "tools.eubyt.dev",
+        "tagline": "Utilitários para desenvolvedores.",
+        "search": "Buscar ferramentas...",
+        "all": "Todas",
+        "back": "Voltar para ferramentas"
+    },
+    "search": {
+        "open": "Buscar",
+        "placeholder": "Buscar ferramentas...",
+        "commandLabel": "Buscar ferramentas",
+        "hint": "Selecione uma ferramenta para abrir"
+    },
+    "theme": {
+        "light": "Claro",
+        "dark": "Escuro",
+        "system": "Sistema",
+        "toggle": "Alternar tema",
+        "current": "Tema: {theme}"
+    },
+    "language": {
+        "openMenu": "Selecionar idioma",
+        "label": "Idioma",
+        "automatic": "Automático",
+        "browserLanguage": "Navegador: {language}",
+        "english": "English",
+        "portuguese": "Português",
+        "code": {
+            "en": "EN",
+            "pt": "PT"
+        }
+    },
+    "common": {
+        "copy": "Copiar",
+        "copied": "Copiado!",
+        "copyAll": "Copiar todos",
+        "clear": "Limpar",
+        "paste": "Colar",
+        "swap": "Inverter",
+        "sample": "Exemplo",
+        "input": "Entrada",
+        "output": "Saída",
+        "options": "Opções",
+        "generate": "Gerar",
+        "validate": "Validar",
+        "format": "Formatar",
+        "valid": "Válido",
+        "invalid": "Inválido",
+        "error": "Erro",
+        "length": "Tamanho",
+        "bytes": "bytes",
+        "characters": "caracteres",
+        "lines": "linhas",
+        "compare": "Comparar",
+        "match": "Corresponde",
+        "noMatch": "Não corresponde",
+        "uppercase": "Maiúsculas",
+        "lowercase": "Minúsculas",
+        "download": "Baixar",
+        "searchEmpty": "Nenhuma ferramenta encontrada para '{query}'"
+    },
+    "categories": {
+        "all": "Todas",
+        "crypto": "Hash & Cripto",
+        "encoding": "Codificação",
+        "json": "JSON & Dados",
+        "generators": "Geradores"
+    },
+    "tools": {
+        "hash-gen": {
+            "name": "Gerador de Hash",
+            "desc": "Cálculo em tempo real de MD5, SHA-1, SHA-256, SHA-384 e SHA-512",
+            "inputPlaceholder": "Digite ou cole o texto para gerar os hashes..."
+        },
+        "base64": {
+            "name": "Base64",
+            "desc": "Codifique e decodifique strings em Base64 (padrão e URL-safe)",
+            "encode": "Codificar",
+            "decode": "Decodificar",
+            "urlSafe": "URL-Safe",
+            "textPlaceholder": "Texto simples de entrada...",
+            "b64Placeholder": "String codificada em Base64..."
+        },
+        "url-encode": {
+            "name": "URL Encode",
+            "desc": "Codificação e decodificação percent-encoding para URLs",
+            "encode": "Codificar",
+            "decode": "Decodificar",
+            "fullUri": "Preservar Caracteres",
+            "textPlaceholder": "Texto ou URL para codificar/decodificar..."
+        },
+        "hex-text": {
+            "name": "Hex ↔ Texto",
+            "desc": "Conversor entre texto e representação hexadecimal",
+            "delimiter": "Delimitador",
+            "none": "Nenhum",
+            "space": "Espaço",
+            "prefix": "Prefixo 0x",
+            "colon": "Dois pontos (:)",
+            "textPlaceholder": "Texto simples...",
+            "hexPlaceholder": "String hexadecimal (ex: 68 65 6c 6c 6f)..."
+        },
+        "json-formatter": {
+            "name": "Formatador JSON",
+            "desc": "Formate e embeleze JSON com indentação personalizada",
+            "indent": "Indentação",
+            "spaces2": "2 espaços",
+            "spaces4": "4 espaços",
+            "tabs": "Tabulação",
+            "placeholder": "{\n  \"name\": \"tools.eubyt.dev\"\n}"
+        },
+        "json-minifier": {
+            "name": "Minificador JSON",
+            "desc": "Comprima JSON removendo espaços desnecessários e quebras de linha",
+            "placeholder": "Cole o JSON para minificar..."
+        },
+        "json-validator": {
+            "name": "Validador JSON",
+            "desc": "Verifique a sintaxe JSON com indicação exata de linha e coluna",
+            "placeholder": "Cole o JSON para validar..."
+        },
+        "json-diff": {
+            "name": "JSON Diff",
+            "desc": "Compare dois JSONs lado a lado com identificação visual de mudanças",
+            "left": "JSON Original",
+            "right": "JSON Modificado",
+            "noDiff": "As estruturas JSON são idênticas."
+        },
+        "json-yaml": {
+            "name": "JSON ↔ YAML",
+            "desc": "Conversão bidirecional entre JSON e YAML",
+            "jsonPlaceholder": "Entrada JSON...",
+            "yamlPlaceholder": "Entrada YAML..."
+        },
+        "json-xml": {
+            "name": "JSON ↔ XML",
+            "desc": "Conversão bidirecional entre JSON e XML",
+            "rootTag": "Nome da Tag Raiz",
+            "jsonPlaceholder": "Entrada JSON...",
+            "xmlPlaceholder": "Entrada XML..."
+        },
+        "json-csv": {
+            "name": "JSON ↔ CSV",
+            "desc": "Converta array de objetos JSON para CSV e vice-versa",
+            "delimiter": "Delimitador",
+            "comma": "Vírgula (,)",
+            "semicolon": "Ponto e vírgula (;)",
+            "tab": "Tab (\\t)",
+            "jsonPlaceholder": "[{\"id\": 1, \"name\": \"Byte\"}]",
+            "csvPlaceholder": "id,name\n1,Byte"
+        },
+        "json-toml": {
+            "name": "JSON ↔ TOML",
+            "desc": "Conversão bidirecional entre JSON e TOML",
+            "jsonPlaceholder": "Entrada JSON...",
+            "tomlPlaceholder": "Entrada TOML..."
+        },
+        "hmac": {
+            "name": "Gerador HMAC",
+            "desc": "Código de autenticação de mensagem baseado em hash com chave secreta",
+            "algorithm": "Algoritmo",
+            "secretKey": "Chave Secreta",
+            "message": "Mensagem / Entrada",
+            "keyPlaceholder": "Digite a chave secreta..."
+        },
+        "jwt-decode": {
+            "name": "JWT Decoder",
+            "desc": "Decodifique tokens JWT e inspecione header, payload e expiração",
+            "tokenPlaceholder": "Cole ou digite o token JWT aqui...",
+            "encodedToken": "Token Codificado",
+            "header": "Header (Algoritmo e Tipo)",
+            "payload": "Payload (Dados e Claims)",
+            "signature": "Assinatura",
+            "status": "Status do Token",
+            "valid": "Ativo",
+            "expired": "Expirado",
+            "notYetValid": "Ainda não ativo",
+            "noExpiry": "Sem claim de expiração",
+            "issuedAt": "Emitido em (iat)",
+            "expiresAt": "Expira em (exp)",
+            "notBefore": "Válido a partir de (nbf)",
+            "lifespan": "Validade Total",
+            "elapsed": "Decorrido",
+            "remaining": "Restante",
+            "unixTimestamp": "Unix Epoch",
+            "utcTime": "Horário UTC",
+            "localTime": "Horário Local",
+            "registeredClaims": "Claims Registradas Padrão",
+            "algorithm": "Algoritmo",
+            "tokenType": "Tipo de Token",
+            "subject": "Sujeito (sub)",
+            "issuer": "Emissor (iss)",
+            "audience": "Audiência (aud)",
+            "jwtId": "ID do JWT (jti)",
+            "keyId": "ID da Chave (kid)"
+        },
+        "jwt-generator": {
+            "name": "JWT Generator",
+            "desc": "Crie e assine tokens JWT com algoritmos HS256, HS384 ou HS512",
+            "secretKey": "Chave de Assinatura",
+            "keyPlaceholder": "Chave secreta para a assinatura...",
+            "generateToken": "Gerar & Assinar Token",
+            "tokenOutput": "JWT Assinado"
+        },
+        "aes": {
+            "name": "AES Encrypt / Decrypt",
+            "desc": "Criptografia e descriptografia AES-256 no navegador com senha e IV",
+            "mode": "Ação",
+            "encrypt": "Criptografar",
+            "decrypt": "Descriptografar",
+            "passphrase": "Senha / Chave",
+            "iv": "Vetor de Inicialização (IV - opcional)",
+            "plaintext": "Texto Plano",
+            "ciphertext": "Texto Cifrado (Base64)"
+        },
+        "bcrypt": {
+            "name": "Bcrypt Hash & Verificação",
+            "desc": "Gere hashes bcrypt com salt configurável e valide senhas",
+            "action": "Modo",
+            "generate": "Gerar Hash",
+            "verify": "Verificar Correspondência",
+            "rounds": "Fator de Custo (Rounds)",
+            "password": "Senha",
+            "hash": "Hash Bcrypt",
+            "match": "A senha confere com o hash!",
+            "mismatch": "A senha NÃO confere com o hash."
+        },
+        "random-hash": {
+            "name": "Hash Aleatório / Segredo",
+            "desc": "Gere hashes aleatórios criptográficos, tokens e chaves de API",
+            "count": "Quantidade",
+            "length": "Comprimento",
+            "type": "Formato",
+            "hex": "Hexadecimal (estilo sha)",
+            "base64": "Base64",
+            "base62": "Alfanumérico",
+            "apiKey": "Chave de API (prefixo_...)",
+            "prefix": "Prefixo Customizado",
+            "generate": "Gerar novos"
+        },
+        "uuid": {
+            "name": "Gerador de UUID",
+            "desc": "Gere UUIDs v4 (aleatório), v1 (tempo) e v7 (Unix Epoch ordenável)",
+            "version": "Versão do UUID",
+            "count": "Quantidade",
+            "hyphens": "Hífens",
+            "uppercase": "Maiúsculas",
+            "copyAll": "Copiar todos",
+            "generate": "Gerar"
+        }
+    },
+    "footer": {
+        "sourceCode": "código-fonte",
+        "credit": "tools.eubyt.dev"
+    },
+    "toast": {
+        "close": "Fechar"
+    }
+}

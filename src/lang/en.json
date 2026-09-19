@@ -1,0 +1,264 @@
+{
+    "meta": {
+        "title": "tools.eubyt.dev — Developer Tools",
+        "description": "Developer utility tools: hashes, JSON converters, JWT, HMAC, AES, Bcrypt, UUIDs, Base64."
+    },
+    "header": {
+        "title": "tools.eubyt.dev",
+        "tagline": "Developer utility tools.",
+        "search": "Search tools...",
+        "all": "All",
+        "back": "Back to tools"
+    },
+    "search": {
+        "open": "Search",
+        "placeholder": "Search tools...",
+        "commandLabel": "Search tools",
+        "hint": "Select a tool to open"
+    },
+    "theme": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System",
+        "toggle": "Toggle theme",
+        "current": "Theme: {theme}"
+    },
+    "language": {
+        "openMenu": "Select language",
+        "label": "Language",
+        "automatic": "Automatic",
+        "browserLanguage": "Browser: {language}",
+        "english": "English",
+        "portuguese": "Português",
+        "code": {
+            "en": "EN",
+            "pt": "PT"
+        }
+    },
+    "common": {
+        "copy": "Copy",
+        "copied": "Copied!",
+        "copyAll": "Copy all",
+        "clear": "Clear",
+        "paste": "Paste",
+        "swap": "Swap",
+        "sample": "Sample",
+        "input": "Input",
+        "output": "Output",
+        "options": "Options",
+        "generate": "Generate",
+        "validate": "Validate",
+        "format": "Format",
+        "valid": "Valid",
+        "invalid": "Invalid",
+        "error": "Error",
+        "length": "Length",
+        "bytes": "bytes",
+        "characters": "characters",
+        "lines": "lines",
+        "compare": "Compare",
+        "match": "Match",
+        "noMatch": "No match",
+        "uppercase": "Uppercase",
+        "lowercase": "Lowercase",
+        "download": "Download",
+        "searchEmpty": "No tools matching '{query}'"
+    },
+    "categories": {
+        "all": "All",
+        "crypto": "Hash & Crypto",
+        "encoding": "Encoding",
+        "json": "JSON & Data",
+        "generators": "Generators"
+    },
+    "tools": {
+        "hash-gen": {
+            "name": "Hash Generator",
+            "desc": "Real-time generation of MD5, SHA-1, SHA-256, SHA-384, SHA-512",
+            "inputPlaceholder": "Type or paste text to hash..."
+        },
+        "base64": {
+            "name": "Base64",
+            "desc": "Encode and decode Base64 strings (standard & URL-safe)",
+            "encode": "Encode",
+            "decode": "Decode",
+            "urlSafe": "URL-Safe",
+            "textPlaceholder": "Plain text input...",
+            "b64Placeholder": "Base64 encoded string..."
+        },
+        "url-encode": {
+            "name": "URL Encode",
+            "desc": "Encode and decode URL parameters & query strings",
+            "encode": "Encode",
+            "decode": "Decode",
+            "fullUri": "Preserve Characters",
+            "textPlaceholder": "Text or URL to encode/decode..."
+        },
+        "hex-text": {
+            "name": "Hex ↔ Text",
+            "desc": "Convert text to hexadecimal and hexadecimal to text",
+            "delimiter": "Delimiter",
+            "none": "None",
+            "space": "Space",
+            "prefix": "0x prefix",
+            "colon": "Colon (:)",
+            "textPlaceholder": "Plain text...",
+            "hexPlaceholder": "Hexadecimal string (e.g. 68 65 6c 6c 6f)..."
+        },
+        "json-formatter": {
+            "name": "JSON Formatter",
+            "desc": "Format and beautify JSON with custom indentation",
+            "indent": "Indentation",
+            "spaces2": "2 spaces",
+            "spaces4": "4 spaces",
+            "tabs": "Tabs",
+            "placeholder": "{\n  \"name\": \"tools.eubyt.dev\"\n}"
+        },
+        "json-minifier": {
+            "name": "JSON Minifier",
+            "desc": "Minify and compact JSON by removing whitespace",
+            "placeholder": "Paste JSON to minify..."
+        },
+        "json-validator": {
+            "name": "JSON Validator",
+            "desc": "Inspect syntax errors with exact line and column numbers",
+            "placeholder": "Paste JSON to validate..."
+        },
+        "json-diff": {
+            "name": "JSON Diff",
+            "desc": "Compare two JSON payloads and inspect structural differences",
+            "left": "Original JSON",
+            "right": "Modified JSON",
+            "noDiff": "Both JSON structures are identical."
+        },
+        "json-yaml": {
+            "name": "JSON ↔ YAML",
+            "desc": "Bidirectional conversion between JSON and YAML",
+            "jsonPlaceholder": "JSON input...",
+            "yamlPlaceholder": "YAML input..."
+        },
+        "json-xml": {
+            "name": "JSON ↔ XML",
+            "desc": "Bidirectional conversion between JSON and XML",
+            "rootTag": "Root Tag Name",
+            "jsonPlaceholder": "JSON input...",
+            "xmlPlaceholder": "XML input..."
+        },
+        "json-csv": {
+            "name": "JSON ↔ CSV",
+            "desc": "Convert array of objects to CSV and CSV to JSON",
+            "delimiter": "Delimiter",
+            "comma": "Comma (,)",
+            "semicolon": "Semicolon (;)",
+            "tab": "Tab (\\t)",
+            "jsonPlaceholder": "[{\"id\": 1, \"name\": \"Byte\"}]",
+            "csvPlaceholder": "id,name\n1,Byte"
+        },
+        "json-toml": {
+            "name": "JSON ↔ TOML",
+            "desc": "Bidirectional conversion between JSON and TOML",
+            "jsonPlaceholder": "JSON input...",
+            "tomlPlaceholder": "TOML input..."
+        },
+        "hmac": {
+            "name": "HMAC Generator",
+            "desc": "Hash-based message authentication code with custom secret key",
+            "algorithm": "Algorithm",
+            "secretKey": "Secret Key",
+            "message": "Message / Input",
+            "keyPlaceholder": "Enter secret key..."
+        },
+        "jwt-decode": {
+            "name": "JWT Decoder",
+            "desc": "Decode JSON Web Tokens and inspect header, claims, and expiry",
+            "tokenPlaceholder": "Paste or type a JWT token here...",
+            "encodedToken": "Encoded Token",
+            "header": "Header (Algorithm & Token Type)",
+            "payload": "Payload (Claims & Data)",
+            "signature": "Signature",
+            "status": "Token Status",
+            "valid": "Active",
+            "expired": "Expired",
+            "notYetValid": "Not Active Yet",
+            "noExpiry": "No Expiration Claim",
+            "issuedAt": "Issued At (iat)",
+            "expiresAt": "Expires (exp)",
+            "notBefore": "Not Before (nbf)",
+            "lifespan": "Total Lifespan",
+            "elapsed": "Elapsed",
+            "remaining": "Remaining",
+            "unixTimestamp": "Unix Epoch",
+            "utcTime": "UTC Time",
+            "localTime": "Local Time",
+            "registeredClaims": "Standard Registered Claims",
+            "algorithm": "Algorithm",
+            "tokenType": "Token Type",
+            "subject": "Subject (sub)",
+            "issuer": "Issuer (iss)",
+            "audience": "Audience (aud)",
+            "jwtId": "JWT ID (jti)",
+            "keyId": "Key ID (kid)"
+        },
+        "jwt-generator": {
+            "name": "JWT Generator",
+            "desc": "Create and sign JWT tokens with HS256, HS384, or HS512",
+            "secretKey": "Signing Secret",
+            "keyPlaceholder": "Secret key for signature...",
+            "generateToken": "Generate & Sign Token",
+            "tokenOutput": "Signed JWT"
+        },
+        "aes": {
+            "name": "AES Encrypt / Decrypt",
+            "desc": "AES-256-CBC / GCM encryption and decryption with passphrase",
+            "mode": "Action",
+            "encrypt": "Encrypt",
+            "decrypt": "Decrypt",
+            "passphrase": "Key / Passphrase",
+            "iv": "Initialization Vector (IV - optional)",
+            "plaintext": "Plaintext",
+            "ciphertext": "Ciphertext (Base64)"
+        },
+        "bcrypt": {
+            "name": "Bcrypt Hash & Verify",
+            "desc": "Generate bcrypt hashes with cost rounds and verify passwords",
+            "action": "Mode",
+            "generate": "Generate Hash",
+            "verify": "Verify Match",
+            "rounds": "Cost Rounds (Salt factor)",
+            "password": "Password",
+            "hash": "Bcrypt Hash",
+            "match": "Password matches hash!",
+            "mismatch": "Password does NOT match hash."
+        },
+        "random-hash": {
+            "name": "Random Hash / Secret",
+            "desc": "Cryptographically secure random hashes, API keys, and tokens",
+            "count": "Quantity",
+            "length": "Length",
+            "type": "Format",
+            "hex": "Hexadecimal (e.g. 64-char sha-like)",
+            "base64": "Base64",
+            "base62": "Alphanumeric",
+            "apiKey": "API Key (prefix_...)",
+            "prefix": "Custom Prefix",
+            "generate": "Generate New"
+        },
+        "uuid": {
+            "name": "UUID Generator",
+            "desc": "Generate UUID v4 (random), v1 (time), and v7 (Unix Epoch)",
+            "version": "UUID Version",
+            "count": "Quantity",
+            "hyphens": "Hyphens",
+            "uppercase": "Uppercase",
+            "copyAll": "Copy all",
+            "generate": "Generate"
+        }
+    },
+    "footer": {
+        "sourceCode": "source code",
+        "credit": "tools.eubyt.dev"
+    },
+    "toast": {
+        "close": "Close"
+    }
+}
