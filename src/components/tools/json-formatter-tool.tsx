@@ -93,19 +93,13 @@ export function JsonFormatterTool() {
                     </div>
 
                     <div className="flex items-center gap-2">
-                        {input.trim() ? (
-                            validation.valid ? (
-                                <Badge variant="success">
-                                    {t("common.valid")}
-                                </Badge>
-                            ) : (
-                                <Badge variant="destructive">
-                                    {t("common.invalid")}{" "}
-                                    {validation.line
-                                        ? `(L${validation.line}:C${validation.column})`
-                                        : ""}
-                                </Badge>
-                            )
+                        {!validation.valid && input.trim() ? (
+                            <Badge variant="destructive">
+                                {t("common.invalid")}{" "}
+                                {validation.line
+                                    ? `(L${validation.line}:C${validation.column})`
+                                    : ""}
+                            </Badge>
                         ) : null}
                         <Button
                             variant="secondary"

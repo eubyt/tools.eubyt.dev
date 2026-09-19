@@ -26,14 +26,6 @@ export function JsonMinifierTool() {
         }
     }
 
-    const origBytes = new TextEncoder().encode(input).length;
-    const miniBytes = new TextEncoder().encode(minified).length;
-    const savedBytes = origBytes - miniBytes;
-    const savedPercent =
-        origBytes > 0 && savedBytes > 0
-            ? Math.round((savedBytes / origBytes) * 100)
-            : 0;
-
     return (
         <ToolShell
             title={t("tools.json-minifier.name")}
@@ -58,20 +50,10 @@ export function JsonMinifierTool() {
             }
         >
             <div className="flex flex-col gap-4 font-mono">
-                {/* Stats Bar */}
+                {/* Toolbar */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-3 text-xs">
                     <div className="flex items-center gap-2">
-                        {validation.valid && minified ? (
-                            <>
-                                <Badge variant="success">
-                                    -{savedPercent}% ({savedBytes}{" "}
-                                    {t("common.bytes")} saved)
-                                </Badge>
-                                <span className="text-muted-foreground">
-                                    {origBytes}B → {miniBytes}B
-                                </span>
-                            </>
-                        ) : !validation.valid && input.trim() ? (
+                        {!validation.valid && input.trim() ? (
                             <Badge variant="destructive">
                                 {t("common.invalid")}
                             </Badge>
