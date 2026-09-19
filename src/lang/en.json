@@ -223,7 +223,7 @@
             "desc": "Generate bcrypt hashes with cost rounds and verify passwords",
             "action": "Mode",
             "generate": "Generate Hash",
-            "verify": "Verify Match",
+            "verify": "Verify",
             "rounds": "Cost Rounds (Salt factor)",
             "password": "Password",
             "hash": "Bcrypt Hash",

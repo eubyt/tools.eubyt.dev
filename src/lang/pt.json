@@ -223,7 +223,7 @@
             "desc": "Gere hashes bcrypt com salt configurável e valide senhas",
             "action": "Modo",
             "generate": "Gerar Hash",
-            "verify": "Verificar Correspondência",
+            "verify": "Verificar",
             "rounds": "Fator de Custo (Rounds)",
             "password": "Senha",
             "hash": "Hash Bcrypt",

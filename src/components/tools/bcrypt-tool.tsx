@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { LuShieldCheck, LuShieldAlert } from "react-icons/lu";
+import { LuShieldCheck, LuShieldAlert, LuRefreshCw } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ToolShell } from "./tool-shell";
@@ -12,6 +12,7 @@ import {
 } from "@/lib/tools/crypto";
 import { useClipboard } from "@/hooks/use-clipboard";
 import { useTranslations } from "@/providers/locale";
+import { cn } from "@/utils/cn";
 
 const SAMPLE_HASH =
     "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy"; // "password"
@@ -123,10 +124,21 @@ export function BcryptTool() {
                             setMode("generate");
                             handleGenerate();
                         }}
+                        className="gap-1.5"
                     >
-                        {isProcessing && mode === "generate"
-                            ? "Hashing..."
-                            : t("tools.bcrypt.generate")}
+                        <LuRefreshCw
+                            className={cn(
+                                "size-3",
+                                isProcessing &&
+                                    mode === "generate" &&
+                                    "animate-spin",
+                            )}
+                        />
+                        <span>
+                            {isProcessing && mode === "generate"
+                                ? "Hashing..."
+                                : t("tools.bcrypt.generate")}
+                        </span>
                     </Button>
                     <Button
                         variant={mode === "verify" ? "default" : "outline"}
@@ -188,18 +200,36 @@ export function BcryptTool() {
                                     <span className="font-semibold text-foreground">
                                         {t("tools.bcrypt.hash")}
                                     </span>
-                                    <Button
-                                        variant="outline"
-                                        size="xs"
-                                        onClick={() =>
-                                            copy(displayHash, "bcrypt-out")
-                                        }
-                                        className="h-6.5 gap-1.5 px-2.5"
-                                    >
-                                        {isCopied("bcrypt-out")
-                                            ? t("common.copied")
-                                            : t("common.copy")}
-                                    </Button>
+                                    <div className="flex items-center gap-1.5">
+                                        <Button
+                                            variant="outline"
+                                            size="xs"
+                                            onClick={handleGenerate}
+                                            disabled={!password || isProcessing}
+                                            className="h-6.5 gap-1.5 px-2.5"
+                                            title={t("tools.bcrypt.generate")}
+                                        >
+                                            <LuRefreshCw
+                                                className={cn(
+                                                    "size-3",
+                                                    isProcessing &&
+                                                        "animate-spin",
+                                                )}
+                                            />
+                                        </Button>
+                                        <Button
+                                            variant="outline"
+                                            size="xs"
+                                            onClick={() =>
+                                                copy(displayHash, "bcrypt-out")
+                                            }
+                                            className="h-6.5 gap-1.5 px-2.5"
+                                        >
+                                            {isCopied("bcrypt-out")
+                                                ? t("common.copied")
+                                                : t("common.copy")}
+                                        </Button>
+                                    </div>
                                 </div>
                                 <div className="rounded-sm bg-muted/30 p-3 text-xs text-foreground select-all break-all">
                                     {displayHash}
